@@ -22,7 +22,7 @@ TARGET = 'Survived'
 
 # variables
 FEATURES = [
-			'PassengerId','Survived','Pclass','Name','Sex','Age','SibSp','Parch'
+			'PassengerId','Pclass','Name','Sex','Age','SibSp','Parch'
 			,'Ticket','Fare','Cabin','Embarked'
 			#'Pclass','Sex','Age'
             #,'SibSp','Parch','Fare','Cabin','Embarked'
@@ -31,7 +31,7 @@ FEATURES = [
 
 # this variable is to calculate the temporal variable,
 # can be dropped afterwards
-DROP_FEATURES = []
+DROP_FEATURES = ['PassengerId','Name','Ticket']
 
 # numerical variables with NA in train set
 NUMERICAL_VARS_WITH_NA = ['Age']
