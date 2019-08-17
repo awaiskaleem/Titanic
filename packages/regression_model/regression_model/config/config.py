@@ -21,8 +21,11 @@ TARGET = 'Survived'
 
 
 # variables
-FEATURES = ['Pclass','Sex','Age'
-            ,'SibSp','Parch','Fare','Cabin','Embarked'
+FEATURES = [
+			'PassengerId','Survived','Pclass','Name','Sex','Age','SibSp','Parch'
+			,'Ticket','Fare','Cabin','Embarked'
+			#'Pclass','Sex','Age'
+            #,'SibSp','Parch','Fare','Cabin','Embarked'
             # this one is only to calculate temporal variable:
             ]
 
