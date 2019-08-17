@@ -17,41 +17,32 @@ DATASET_DIR = PACKAGE_ROOT / 'datasets'
 # data
 TESTING_DATA_FILE = 'test.csv'
 TRAINING_DATA_FILE = 'train.csv'
-TARGET = 'SalePrice'
+TARGET = 'Survived'
 
 
 # variables
-FEATURES = ['MSSubClass', 'MSZoning', 'Neighborhood',
-            'OverallQual', 'OverallCond', 'YearRemodAdd',
-            'RoofStyle', 'MasVnrType', 'BsmtQual', 'BsmtExposure',
-            'HeatingQC', 'CentralAir', '1stFlrSF', 'GrLivArea',
-            'BsmtFullBath', 'KitchenQual', 'Fireplaces', 'FireplaceQu',
-            'GarageType', 'GarageFinish', 'GarageCars', 'PavedDrive',
-            'LotFrontage',
+FEATURES = ['Pclass','Sex','Age'
+            ,'SibSp','Parch','Fare','Cabin','Embarked'
             # this one is only to calculate temporal variable:
-            'YrSold']
+            ]
 
 # this variable is to calculate the temporal variable,
 # can be dropped afterwards
-DROP_FEATURES = 'YrSold'
+DROP_FEATURES = []
 
 # numerical variables with NA in train set
-NUMERICAL_VARS_WITH_NA = ['LotFrontage']
+NUMERICAL_VARS_WITH_NA = ['Age']
 
 # categorical variables with NA in train set
-CATEGORICAL_VARS_WITH_NA = ['MasVnrType', 'BsmtQual', 'BsmtExposure',
-                            'FireplaceQu', 'GarageType', 'GarageFinish']
+CATEGORICAL_VARS_WITH_NA = ['Cabin','Embarked']
 
-TEMPORAL_VARS = 'YearRemodAdd'
+CAT_SLICE_VARS = ['Cabin']
 
 # variables to log transform
-NUMERICALS_LOG_VARS = ['LotFrontage', '1stFlrSF', 'GrLivArea']
+NUMERICALS_LOG_VARS = ['Age']
 
 # categorical variables to encode
-CATEGORICAL_VARS = ['MSZoning', 'Neighborhood', 'RoofStyle', 'MasVnrType',
-                    'BsmtQual', 'BsmtExposure', 'HeatingQC', 'CentralAir',
-                    'KitchenQual', 'FireplaceQu', 'GarageType', 'GarageFinish',
-                    'PavedDrive']
+CATEGORICAL_VARS = ['Pclass','Sex','SibSp','Parch','Embarked','Cabin']
 
 NUMERICAL_NA_NOT_ALLOWED = [
     feature for feature in FEATURES
@@ -64,7 +55,7 @@ CATEGORICAL_NA_NOT_ALLOWED = [
 ]
 
 
-PIPELINE_NAME = 'lasso_regression'
+PIPELINE_NAME = 'logistic_regression'
 PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_output_v'
 
 # used for differential testing

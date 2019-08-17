@@ -19,9 +19,8 @@ price_pipe = Pipeline(
         ('numerical_inputer',
             pp.NumericalImputer(variables=config.NUMERICAL_VARS_WITH_NA)),
         ('temporal_variable',
-            pp.TemporalVariableEstimator(
-                variables=config.TEMPORAL_VARS,
-                reference_variable=config.DROP_FEATURES)),
+            pp.CategoricalVariableSlicer(
+                variables=config.CAT_SLICE_VARS)),
         ('rare_label_encoder',
             pp.RareLabelCategoricalEncoder(
                 tol=0.01,

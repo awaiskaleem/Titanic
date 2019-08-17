@@ -27,8 +27,8 @@ def run_training() -> None:
         random_state=0)  # we are setting the seed here
 
     # transform the target
-    y_train = np.log(y_train)
-    y_test = np.log(y_test)
+    #y_train = np.log(y_train)
+    #y_test = np.log(y_test)
 
     pipeline.price_pipe.fit(X_train[config.FEATURES],
                             y_train)

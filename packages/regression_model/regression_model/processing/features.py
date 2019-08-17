@@ -28,6 +28,7 @@ class LogTransformer(BaseEstimator, TransformerMixin):
                 f"can't apply log for vars: {vars_}")
 
         for feature in self.variables:
+            X[feature] = X[feature].apply(lambda x: np.ceil(x) if x<1 else x)
             X[feature] = np.log(X[feature])
 
         return X

@@ -53,16 +53,14 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
         return X
 
 
-class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
+class CategoricalVariableSlicer(BaseEstimator, TransformerMixin):
     """Temporal variable calculator."""
 
-    def __init__(self, variables=None, reference_variable=None):
+    def __init__(self, variables=None):
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
             self.variables = variables
-
-        self.reference_variables = reference_variable
 
     def fit(self, X, y=None):
         # we need this step to fit the sklearn pipeline
@@ -71,8 +69,7 @@ class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
     def transform(self, X):
         X = X.copy()
         for feature in self.variables:
-            X[feature] = X[self.reference_variables] - X[feature]
-
+            X[feature] = X[feature].str.slice(0,1)
         return X
 
 
