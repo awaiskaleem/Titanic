@@ -22,30 +22,30 @@ TARGET = 'Survived'
 
 # variables
 FEATURES = [
-			'PassengerId','Pclass','Name','Sex','Age','SibSp','Parch'
-			,'Ticket','Fare','Cabin','Embarked'
-			#'Pclass','Sex','Age'
-            #,'SibSp','Parch','Fare','Cabin','Embarked'
+            #'PassengerId','Pclass','Name','Sex','Age','SibSp','Parch'
+            #,'Ticket','Fare','Cabin','Embarked'
+            'Pclass','Sex','Age'
+            ,'SibSp','Parch','Fare','Embarked'
             # this one is only to calculate temporal variable:
             ]
 
 # this variable is to calculate the temporal variable,
 # can be dropped afterwards
-DROP_FEATURES = ['PassengerId','Name','Ticket']
+DROP_FEATURES = []
 
 # numerical variables with NA in train set
 NUMERICAL_VARS_WITH_NA = ['Age']
 
 # categorical variables with NA in train set
-CATEGORICAL_VARS_WITH_NA = ['Cabin','Embarked']
+CATEGORICAL_VARS_WITH_NA = ['Embarked']
 
-CAT_SLICE_VARS = ['Cabin']
+CAT_SLICE_VARS = []
 
 # variables to log transform
 NUMERICALS_LOG_VARS = ['Age']
 
 # categorical variables to encode
-CATEGORICAL_VARS = ['Pclass','Sex','SibSp','Parch','Embarked','Cabin']
+CATEGORICAL_VARS = ['Pclass','Sex','SibSp','Parch','Embarked']
 
 NUMERICAL_NA_NOT_ALLOWED = [
     feature for feature in FEATURES

@@ -10,9 +10,9 @@ class InvalidInputError(Exception):
 
 
 SYNTAX_ERROR_FIELD_MAP = {
-    '1stFlrSF': 'FirstFlrSF',
-    '2ndFlrSF': 'SecondFlrSF',
-    '3SsnPorch': 'ThreeSsnPortch'
+    #'1stFlrSF': 'FirstFlrSF',
+    #'2ndFlrSF': 'SecondFlrSF',
+    #'3SsnPorch': 'ThreeSsnPortch'
 }
 
 
@@ -20,14 +20,14 @@ class HouseDataRequestSchema(Schema):
     PassengerId = fields.Integer()
     Pclass = fields.Integer()
     Name = fields.Str()
-    Sex = fields.Integer()
-    Age = fields.Integer()
+    Sex = fields.Str()
+    Age = fields.Float(allow_none=True)
     SibSp = fields.Integer()
     Parch = fields.Integer()
     Ticket = fields.Str()
-    Fare = fields.Integer()
-    Cabin = fields.Str()
-    Embarked = fields.Integer()
+    Fare = fields.Float()
+    Cabin = fields.Str(allow_none=True)
+    Embarked = fields.Str(allow_none=True)
 
 
 def _filter_error_rows(errors: dict,
