@@ -1,4 +1,4 @@
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
 
@@ -33,6 +33,6 @@ price_pipe = Pipeline(
         ('drop_features',
             pp.DropUnecessaryFeatures(variables_to_drop=config.DROP_FEATURES)),
         ('scaler', MinMaxScaler()),
-        ('Linear_model', Lasso(alpha=0.005, random_state=0))
+        ('Linear_model', LogisticRegression())
     ]
 )
