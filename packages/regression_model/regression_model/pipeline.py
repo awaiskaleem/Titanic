@@ -1,6 +1,7 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
+from xgboost import XGBClassifier
 
 from regression_model.processing import preprocessors as pp
 from regression_model.processing import features
@@ -33,6 +34,6 @@ price_pipe = Pipeline(
         ('drop_features',
             pp.DropUnecessaryFeatures(variables_to_drop=config.DROP_FEATURES)),
         ('scaler', MinMaxScaler()),
-        ('Linear_model', LogisticRegression())
+        ('Linear_model', XGBClassifier())
     ]
 )
