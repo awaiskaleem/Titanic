@@ -166,7 +166,7 @@ workflows:
                 - master
       - test_ml_api:
           requires:
-            train_and_upload_regression_model
+            - train_and_upload_regression_model
           filters:
             branches:
               only:
